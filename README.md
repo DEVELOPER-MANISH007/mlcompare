@@ -1,5 +1,10 @@
 # 🚀 MLCompare
 
+Compare Machine Learning models in just a few lines of code.
+
+[![PyPI version](https://img.shields.io/pypi/v/mlcompare-dev.svg)](https://pypi.org/project/mlcompare-dev/)
+[![Python](https://img.shields.io/pypi/pyversions/mlcompare-dev.svg)](https://pypi.org/project/mlcompare-dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 **MLCompare** is a beginner-friendly Python library to compare multiple Machine Learning models with just a few lines of code.
 
 Instead of writing repetitive code for training and evaluating models, MLCompare automatically trains multiple algorithms, compares their performance, selects the best model, and allows prediction and model saving.
