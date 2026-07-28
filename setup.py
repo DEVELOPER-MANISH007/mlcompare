@@ -4,8 +4,8 @@ with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
-    name="mlcompare",
-    version="0.1.0",
+    name="mlcompare-dev",
+    version="0.1.1",
     author="Manish Kumar",
     description="Compare classification and regression ML models",
     long_description=long_description,
