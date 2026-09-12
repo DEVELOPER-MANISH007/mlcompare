@@ -1,27 +1,25 @@
+<div align="center">
+
 # 🚀 MLCompare
 
-**MLCompare** is a beginner-friendly Python library to compare multiple Machine Learning models with just a few lines of code.
+### Compare Machine Learning Models in Just a Few Lines of Code
 
-Instead of writing repetitive code for training and evaluating models, MLCompare automatically trains multiple algorithms, compares their performance, selects the best model, and allows prediction and model saving.
+A lightweight Python package to compare multiple Machine Learning models for **Classification** and **Regression**, evaluate performance, and save the best model effortlessly.
 
----
+[![PyPI version](https://img.shields.io/pypi/v/mlcompare-dev.svg)](https://pypi.org/project/mlcompare-dev/)
+[![Python Version](https://img.shields.io/pypi/pyversions/mlcompare-dev.svg)](https://pypi.org/project/mlcompare-dev/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Downloads](https://img.shields.io/pypi/dm/mlcompare-dev)](https://pypi.org/project/mlcompare-dev/)
+[![GitHub stars](https://img.shields.io/github/stars/Developer-Manish007/mlcompare?style=social)](https://github.com/Developer-Manish007/mlcompare)
 
-# ✨ Features
-
-- ✅ Automatic Classification & Regression Detection
-- ✅ Train Multiple ML Models
-- ✅ Compare Model Performance
-- ✅ Automatically Select Best Model
-- ✅ Predict Using Best Model
-- ✅ Save & Load Trained Model
-- ✅ Simple Beginner-Friendly API
+</div>
 
 ---
 
 # 📦 Installation
 
 ```bash
-pip install mlcompare-dev
+pip install mlcompare
 ```
 
 Or install locally
@@ -32,29 +30,15 @@ pip install -e .
 
 ---
 
-# 📚 Supported Models
+# ✨ Features
 
-## Classification
-
-- Logistic Regression
-- K-Nearest Neighbors (KNN)
-- Support Vector Machine (SVM)
-- Decision Tree
-- Random Forest
-- AdaBoost
-- Gradient Boosting
-- Extra Trees
-
-## Regression
-
-- Linear Regression
-- Ridge Regression
-- Lasso Regression
-- ElasticNet
-- Decision Tree Regressor
-- Random Forest Regressor
-- Gradient Boosting Regressor
-- Extra Trees Regressor
+- ✅ Automatic Classification & Regression support
+- ✅ Compare multiple Machine Learning models
+- ✅ Performance metrics comparison
+- ✅ Save trained models
+- ✅ Load saved models
+- ✅ Clean and beginner-friendly API
+- ✅ Built with Scikit-Learn
 
 ---
 
@@ -62,38 +46,29 @@ pip install -e .
 
 ```python
 from mlcompare import MLCompare
-import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
 
-df = pd.read_csv("data.csv")
+# Load Dataset
+X, y = load_iris(return_X_y=True)
 
-ml = MLCompare(
-    data=df,
-    target="target"
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
 )
 
-results = ml.compare()
+# Create MLCompare Object
+mc = MLCompare()
+
+# Train Models
+mc.fit(X_train, y_train)
+
+# Compare Models
+results = mc.compare()
 
 print(results)
-```
-
----
-
-# 🏆 Best Model
-
-```python
-print(ml.best_model_name)
-```
-
----
-
-# 🔮 Prediction
-
-```python
-new_data = df.drop(columns=["target"]).head()
-
-predictions = ml.predict(new_data)
-
-print(predictions)
 ```
 
 ---
@@ -101,7 +76,7 @@ print(predictions)
 # 💾 Save Model
 
 ```python
-ml.save("best_model.pkl")
+mc.save("best_model.pkl")
 ```
 
 ---
@@ -109,77 +84,99 @@ ml.save("best_model.pkl")
 # 📂 Load Model
 
 ```python
-ml.load("best_model.pkl")
+from mlcompare import load_model
+
+model = load_model("best_model.pkl")
 ```
 
 ---
 
-# 📊 Example Output
+# 📊 Supported Models
 
-| Model | Accuracy |
-|--------|----------|
-| SVM | 0.95 |
-| Random Forest | 0.94 |
-| Extra Trees | 0.93 |
-| Logistic Regression | 0.91 |
+## Classification
+
+- Logistic Regression
+- K-Nearest Neighbors
+- Decision Tree
+- Random Forest
+- Support Vector Machine
+- Gaussian Naive Bayes
+
+## Regression
+
+- Linear Regression
+- Decision Tree Regressor
+- Random Forest Regressor
+- KNeighbors Regressor
+- Support Vector Regressor
 
 ---
 
-# 📁 Project Structure
+# 📈 Project Structure
 
 ```
 mlcompare/
 │
-├── core.py
-├── models.py
-├── metrics.py
-├── utils.py
-├── save.py
-├── version.py
-└── __init__.py
+├── mlcompare/
+│   ├── core.py
+│   ├── models.py
+│   ├── metrics.py
+│   ├── save.py
+│   ├── utils.py
+│   ├── version.py
+│   └── __init__.py
+│
+├── examples/
+├── README.md
+├── setup.py
+├── requirements.txt
+├── LICENSE
+└── .gitignore
 ```
 
 ---
 
-# 🛠 Requirements
+# 🛣️ Roadmap
 
-- Python 3.10+
-- pandas
-- numpy
-- scikit-learn
-- joblib
+## v0.2.0
 
----
+- [ ] StandardScaler
+- [ ] MinMaxScaler
+- [ ] RobustScaler
+- [ ] Cross Validation
+- [ ] More Evaluation Metrics
 
-# 📌 Roadmap
+## v0.3.0
 
-Upcoming Features
+- [ ] Hyperparameter Tuning
+- [ ] Feature Importance
+- [ ] Model Explainability
 
-- Hyperparameter Tuning
-- Cross Validation
-- Feature Importance
-- Confusion Matrix
-- ROC-AUC Score
-- StandardScaler Support
-- Missing Value Handling
-- Categorical Encoding
-- XGBoost
-- LightGBM
-- CatBoost
+## v1.0.0
+
+- [ ] AutoML Workflow
+- [ ] Pipeline Support
+- [ ] SHAP Integration
+- [ ] XGBoost
+- [ ] LightGBM
+- [ ] CatBoost
 
 ---
 
 # 🤝 Contributing
 
-Contributions are welcome!
+Contributions, feature requests, and bug reports are welcome!
 
-Feel free to open an Issue or submit a Pull Request.
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Open a Pull Request
 
 ---
 
 # 📄 License
 
-MIT License
+This project is licensed under the **MIT License**.
 
 ---
 
@@ -188,4 +185,4 @@ MIT License
 **Manish Kumar**
 
 GitHub:
-https://github.com/Developer-Manish007/mlcompare
+https://github.com/Developer-Manish007
