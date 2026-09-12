@@ -21,7 +21,7 @@ Instead of writing repetitive code for training and evaluating models, MLCompare
 # 📦 Installation
 
 ```bash
-pip install mlcompare
+pip install mlcompare-dev
 ```
 
 Or install locally
@@ -188,4 +188,4 @@ MIT License
 **Manish Kumar**
 
 GitHub:
-https://github.com/Developer-Manish007
+https://github.com/Developer-Manish007/mlcompare
