@@ -5,9 +5,9 @@ with open("README.md", encoding="utf-8") as f:
 
 setup(
     name="mlcompare-dev",
-    version="0.1.1",
+    version="0.1.2",
     author="Manish Kumar",
-    description="Compare classification and regression ML models",
+    description="Compare and evaluate multiple classification and regression ML models",
     long_description=long_description,
     license="MIT",
     long_description_content_type="text/markdown",
